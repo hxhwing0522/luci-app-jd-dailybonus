@@ -94,7 +94,7 @@ serverchan() {
         serverurl=https://sctapi.ftqq.com/
     fi
     if [ $failed -eq 1 ]; then
-        grep "Cookie失效" /www/JD_DailyBonus.htm > /dev/null
+        grep ":  Cookie失效" /www/JD_DailyBonus.htm > /dev/null
         if [ $? -eq 0 ]; then
             title="$(date '+%Y年%m月%d日') 京东签到 Cookie 失效"
             wget-ssl -q --output-document=/dev/null --post-data="text=$title~&desp=$desc" $serverurl$sckey.send
